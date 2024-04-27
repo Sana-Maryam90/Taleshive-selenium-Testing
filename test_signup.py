@@ -1,13 +1,9 @@
-from selenium import webdriver
+from setUp_driver import setup_driver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import time
 
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_experimental_option("detach", True)
-driver = webdriver.Chrome(options=chrome_options)
+driver = setup_driver()
 driver.get('http://localhost/TryingTaleshive/login.html')
 
 test_data = [["maryam", "sana123@html.com", "abcdefgh"], ["maryam", "maryam456@html.com", "abcdefgh"]]
