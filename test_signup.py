@@ -1,6 +1,5 @@
-from setUp_driver import setup_driver
+from common_functions import setup_driver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 import time
 
 driver = setup_driver()

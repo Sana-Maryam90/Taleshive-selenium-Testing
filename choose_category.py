@@ -1,9 +1,12 @@
-from setUp_driver import setup_driver
+from common_functions import setup_driver, highlight_element
 from selenium.webdriver.common.by import By
 import time
 
 driver = setup_driver()
 driver.get("http://localhost/tryingtaleshive/category.html")
+
+test_data = ["Comedy", "Action"]
+
 
 def choose_category(category):
     category_button = driver.find_element(By.ID, category)
@@ -17,9 +20,10 @@ def choose_category(category):
 
         story.click()
         categories = driver.find_element(By.ID, "categ")
+        highlight_element(driver, categories)
         time.sleep(1)
         if category.lower() in categories.text:
-            print(title, " belongs to ", category, " category")
+            print("'", title, "' belongs to ", category, " category")
             count += 1
 
         driver.back();
@@ -31,4 +35,10 @@ def choose_category(category):
     else:
         print("Category Selection failed")
 
-choose_category("Comedy")
+
+# Executing tests with different categories
+for data in test_data:
+    print("Category: ", data.upper())
+    choose_category(data)
+    time.sleep(1)
+    print("\n\n")

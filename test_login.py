@@ -1,6 +1,5 @@
-from setUp_driver import setup_driver
+from common_functions import setup_driver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 import time
 
 driver = setup_driver()
@@ -8,6 +7,7 @@ driver.get('http://localhost/TryingTaleshive/login.html')
 
 
 test_data = [["sana123@html.com", "abcd123"], ["sana456@html.com", "abcdefgh"], ["sana123@html.com", "abcdefgh"]]
+
 
 def test_login(email, password):
     login = driver.find_element(By.CLASS_NAME, "loginpopup")
@@ -41,6 +41,5 @@ def execute_test_cases():
 
 
 execute_test_cases()
-
 
 
